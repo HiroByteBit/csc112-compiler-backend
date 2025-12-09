@@ -9,8 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const COMPILER_DIR = path.resolve(__dirname, "prototype-0");
-const COMPILER = path.join(COMPILER_DIR, "compiler.exe");
+const COMPILER_DIR = path.join(__dirname, "prototype-0");
+const linuxCompiler = path.join(COMPILER_DIR, "compiler");
+const windowsCompiler = path.join(COMPILER_DIR, "compiler.exe");
+
+// prefer linux binary if exists
+const COMPILER = fs.existsSync(linuxCompiler) ? linuxCompiler : windowsCompiler;
+
 const INPUT = path.join(COMPILER_DIR, "input.p0");
 const ASM_FILE = path.join(COMPILER_DIR, "MIPS64.s");
 const BIN_FILE = path.join(COMPILER_DIR, "MACHINE_CODE.mc");

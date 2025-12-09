@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const COMPILER_DIR = "C:\\Users\\hirob\\csc112-compiler\\prototype-0";
+const COMPILER_DIR = path.join(__dirname, "..", "prototype-0");
 const COMPILER = path.join(COMPILER_DIR, "compiler.exe");
 const INPUT = path.join(COMPILER_DIR, "input.p0");
 const ASM_FILE = path.join(COMPILER_DIR, "MIPS64.s");

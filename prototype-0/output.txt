@@ -1,0 +1,2 @@
+Compilation failed
+Syntax error at line 20: syntax error
